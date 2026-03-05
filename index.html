@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday SneKha ❤️</title>
+
+<style>
+body{
+margin:0;
+background:black;
+color:white;
+font-family:Arial;
+text-align:center;
+overflow:hidden;
+}
+
+h1{color:pink;}
+
+#countdown{
+font-size:40px;
+margin-top:100px;
+}
+
+#content{display:none;}
+
+.slideshow{
+max-width:300px;
+margin:auto;
+}
+
+.slide{
+width:100%;
+display:none;
+border-radius:12px;
+}
+
+.timeline{
+max-width:500px;
+margin:auto;
+text-align:left;
+border-left:3px solid pink;
+padding-left:20px;
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+background:pink;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.heart{
+position:fixed;
+bottom:-10px;
+color:#ff4d6d;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-100vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Birthday Surprise for SneKha ❤️</h1>
+
+<div id="countdown"></div>
+
+<div id="content">
+
+<h1>🎉 Happy Birthday SneKha ❤️</h1>
+<p>From Aswin – 8 Years Love Story</p>
+
+<audio autoplay controls>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<h2>Our Memories</h2>
+
+<div class="slideshow">
+<img class="slide" src="photo1.jpg">
+<img class="slide" src="photo2.jpg">
+<img class="slide" src="photo3.jpg">
+<img class="slide" src="photo4.jpg">
+<img class="slide" src="photo5.jpg">
+</div>
+
+<h2>Our Journey</h2>
+
+<div class="timeline">
+<p><b>2018</b> – The day we met 💫</p>
+<p><b>2019</b> – Endless chats 💬</p>
+<p><b>2020</b> – First memories 📸</p>
+<p><b>2021</b> – Fights but stronger love ❤️</p>
+<p><b>2022</b> – Trips and fun 🌍</p>
+<p><b>2023</b> – Always supporting 🤝</p>
+<p><b>2024</b> – Growing together ✨</p>
+<p><b>2025</b> – 8 years of love ❤️</p>
+</div>
+
+<h2>Final Message</h2>
+
+<p>
+SneKha ❤️ <br><br>
+8 years ago you came into my life  
+and became my biggest happiness.<br><br>
+Through every fight and memory  
+my love for you never changed.<br><br>
+Happy Birthday My Love ❤️ <br>
+– Aswin
+</p>
+
+<br>
+
+<button onclick="showSurprise()">Click for one more surprise ❤️</button>
+
+<div id="surprise" style="display:none;margin-top:30px;">
+
+<h2>💖 One More Thing 💖</h2>
+
+<p>
+SneKha ❤️ <br><br>
+Will you stay with me forever? <br><br>
+8 years down… forever to go ❤️
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+var targetDate=new Date();
+targetDate.setHours(24,0,0,0);
+
+var x=setInterval(function(){
+
+var now=new Date().getTime();
+var distance=targetDate-now;
+
+var hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+var minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+var seconds=Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML=
+hours+"h "+minutes+"m "+seconds+"s ";
+
+if(distance<0){
+clearInterval(x);
+document.getElementById("countdown").style.display="none";
+document.getElementById("content").style.display="block";
+startSlides();
+}
+
+},1000);
+
+
+let index=0;
+
+function startSlides(){
+showSlides();
+}
+
+function showSlides(){
+
+let slides=document.getElementsByClassName("slide");
+
+for(let i=0;i<slides.length;i++){
+slides[i].style.display="none";
+}
+
+index++;
+
+if(index>slides.length){
+index=1;
+}
+
+slides[index-1].style.display="block";
+
+setTimeout(showSlides,3000);
+}
+
+
+function showSurprise(){
+document.getElementById("surprise").style.display="block";
+}
+
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart
